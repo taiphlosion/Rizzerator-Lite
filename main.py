@@ -1,2 +1,2 @@
 #poop butt fart
-import pandas
+import pandas as pd
