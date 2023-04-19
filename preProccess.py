@@ -1,7 +1,10 @@
+import pandas as pd
+import nltk
 import re
-from nltk.corpus import stopwords
 
-stop_words = set(stopwords.words('english'))
+
+words = pd.read('unigram_freq.csv')
+words['']
 
 def clean(text):
     text = text.lower() # to lowercase
