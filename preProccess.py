@@ -3,12 +3,10 @@ import pandas as pd
 import random
 import re
 import contractions
-<<<<<<< HEAD
 from random import uniform
-=======
 import csv
 #import stopwords 
->>>>>>> 7cb8e628229d64aa7f62c956832b0dbc9eb7d68b
+
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
