@@ -12,14 +12,14 @@ from nltk.corpus import stopwords
 
 # Create personalized list of stop words
 stop_words = [ "of", "should", "not", "are", "i", "her", "here", "their", "again", "can", "above", "these", "will", "all", 
-              "them", "has", "she", "him", "his", "itself", "it", "is", "out", "had", "he", "hers", "because", "were", "than", "not",
-                "and", "under", "during", "into", "am", "have", "yours", "a", "some", "have", "has", "ours", "or", "by", "our", "at",
-                  "on", "same", "you", "does", "was", "did", "theirs", "herself", "himself",
-                    "does", "they", "up", "between", "such", "both", "nor", "having", "are", "an", "no", "ain't", "as", "before", "with",
-                      "have", "other", "she", "in", "for", "themselves", "do", "the", "against", "so", "ourselves", "to", "did",
-                        "doing", "each", "been", "has", "after", "off", "but", "through", "it", "this", "own",
-                          "any", "now", "if", "while", "down", "only", "being", "my", "had", "we", "then", "until", "from",
-                            "further", "there", "that", "went", "those"]
+            "them", "has", "she", "him", "his", "itself", "it", "is", "out", "had", "he", "hers", "because", "were", "than", "not",
+            "and", "under", "during", "into", "am", "have", "yours", "a", "some", "have", "has", "ours", "or", "by", "our", "at",
+            "on", "same", "you", "does", "was", "did", "theirs", "herself", "himself",
+            "does", "they", "up", "between", "such", "both", "nor", "having", "are", "an", "no", "ain't", "as", "before", "with",
+            "have", "other", "she", "in", "for", "themselves", "do", "the", "against", "so", "ourselves", "to", "did",
+            "doing", "each", "been", "has", "after", "off", "but", "through", "it", "this", "own",
+            "any", "now", "if", "while", "down", "only", "being", "my", "had", "we", "then", "until", "from",
+            "further", "there", "that", "went", "those"]
 
 word_scores = {}
 
