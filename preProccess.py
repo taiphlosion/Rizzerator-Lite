@@ -88,5 +88,3 @@ print(f"Total words in the dictionary: {len(word_final_scores)}")
 random_words = random.sample(list(word_final_scores.items()), 10)
 for word, score in random_words:
     print(f"{word}: {score}")
-
-"""
