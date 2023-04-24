@@ -4,6 +4,9 @@ import random
 import re
 import contractions
 from random import uniform
+import csv
+#import stopwords 
+
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
