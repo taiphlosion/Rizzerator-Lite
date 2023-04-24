@@ -3,12 +3,7 @@ import pandas as pd
 import random
 import re
 import contractions
-<<<<<<< HEAD
 from random import uniform
-=======
-import csv
-#import stopwords 
->>>>>>> 7cb8e628229d64aa7f62c956832b0dbc9eb7d68b
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
@@ -93,10 +88,6 @@ print(f"Total words in the dictionary: {len(word_final_scores)}")
 random_words = random.sample(list(word_final_scores.items()), 10)
 for word, score in random_words:
     print(f"{word}: {score}")
-<<<<<<< HEAD
-
-
-
 
 # BEGIN ADDING NEW WORDS TO OUR DICTIONARY
 API_KEY = "0191a99ddfmsh88ff5e3602511e9p1bf4e8jsn6e7eb376b38d"
@@ -213,5 +204,3 @@ with open('word_scores.csv', 'w', newline='') as csvfile:
     for word, scores in word_scores.items():
         avg_score = sum(scores) / len(scores) if isinstance(scores, list) else scores
         writer.writerow({'Word': word, 'Score': avg_score})
-=======
->>>>>>> 7cb8e628229d64aa7f62c956832b0dbc9eb7d68b
