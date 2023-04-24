@@ -1,9 +1,9 @@
 ﻿id,language,Sentence,Score
 1276,eng,Let's try something.,3.5
 1277,eng,I have to go to sleep.,3.7
-1280,eng,Today is June 18th and it is Muiriel's birthday!,4.2
-1282,eng,Muiriel is 20 now.,4.8
-1283,eng,"The password is ""Muiriel"".",4.8
+1280,eng,Today is June 18th and it is  's birthday!,4.2
+1282,eng,  is 20 now.,4.8
+1283,eng,"The password is "" "".",4.8
 1284,eng,I will be back soon.,4.6
 1286,eng,I'm at a loss for words.,4.1
 1287,eng,This is never going to end.,4.2
@@ -18,7 +18,7 @@
 1300,eng,I may give up soon and just nap instead.,2.2
 1301,eng,It's because you don't want to be alone.,4.3
 1302,eng,That won't happen.,4.5
-1303,eng,Sometimes he can be a strange guy.,3.4
+1303,eng,Sometimes he can be a sPersone guy.,3.4
 1304,eng,I'll do my best not to disturb your studying.,2.7
 1305,eng,I can only wonder if this is the same for everyone else.,2.4
 1306,eng,I suppose it's different when you think about it over the long term.,2.6
@@ -78,7 +78,7 @@
 1362,eng,That is somewhat explained at the end.,2.8
 1363,eng,I thought you liked to learn new things.,2.7
 1364,eng,Most people write about their daily life.,4.1
-1365,eng,"If I could send you a marshmallow, Trang, I would.",3.8
+1365,eng,"If I could send you a marshmallow,  , I would.",3.8
 1366,eng,"In order to do that, you have to take risks.",4.6
 1367,eng,Every person who is alone is alone because they are afraid of others.,5
 1368,eng,Why do you ask?,2.5
@@ -240,7 +240,7 @@
 1527,eng,I feel like playing cards.,4.1
 1528,eng,Haven't we met somewhere before?,3.7
 1529,eng,A Japanese would never do such a thing.,5
-1530,eng,Allen is a poet.,5
+1530,eng,  is a poet.,5
 1531,eng,The archer killed the deer.,5
 1532,eng,Communism will never be reached in my lifetime.,5
 1533,eng,Rye was called the grain of poverty.,4.7
@@ -320,7 +320,7 @@
 1616,eng,I can walk to school in 10 minutes.,4.9
 1617,eng,It took me more than two hours to translate a few pages of English.,2.4
 1618,eng,It is already eleven.,4.6
-1619,eng,May I talk to Ms. Brown?,2.6
+1619,eng,May I talk to Ms.  ?,2.6
 1620,eng,"Yes, orange juice please, says Mike.",3.7
 1621,eng,Ah! is an interjection.,4.3
 1622,eng,What do you want?,2.6
@@ -331,7 +331,7 @@
 1627,eng,Paris is the most beautiful city in the world.,4.5
 1629,eng,"Hey, I may have no money, but I still have my pride.",4.7
 1630,eng,I have a dream.,5
-1631,eng,This is my friend Rachel. We went to high school together.,4.3
+1631,eng,This is my friend  . We went to high school together.,4.3
 1632,eng,The cost of life increased drastically.,4.8
 1633,eng,"All that which is invented, is true.",4.8
 1634,eng,"To be surprised, to wonder, is to begin to understand.",4.7
@@ -346,7 +346,7 @@
 1643,eng,What do you mean you don't know?!,2.7
 1644,eng,You look stupid.,5
 1645,eng,I think I'm gonna go to sleep.,3.4
-1646,eng,My name is Jack.,5
+1646,eng,My name is  .,5
 1647,eng,I like it very much.,5
 1648,eng,We're meeting up tomorrow?,4.8
 1649,eng,How do you say that in Italian?,2.7
@@ -427,7 +427,7 @@
 1732,eng,Half a million children still face malnutrition in Niger.,4.6
 1733,eng,It will take five to ten years for the technology to be ready.,3.4
 1734,eng,Bicycles are tools for urban sustainability.,4.8
-1735,eng,The French government has launched an online game that challenges taxpayers to balance the national budget.,4.1
+1735,eng,The French government has launched an online game that chPersonges taxpayers to balance the national budget.,4.1
 1736,eng,He would be glad to hear that.,4.6
 1737,eng,What do you believe is true even though you cannot prove it?,2.6
 1738,eng,Computers make people stupid.,5
@@ -596,7 +596,7 @@
 1905,eng,"The formation and movement of hurricanes are capricious, even with our present-day technology.",2.8
 1906,eng,"When you send a telegram, brevity is essential because you will be charged for every word.",3.6
 1907,eng,"David has a keen interest in aesthetics ‚Äî the qualities that make a painting, sculpture, musical composition, or poem pleasing to the eye, ear, or mind.",3.3
-1908,eng,"Despite Trang's constant affirmations of love, Spenser is still afraid someday she will fall out of love with him.",1.2
+1908,eng,"Despite  's constant affirmations of love,   is still afraid someday she will fall out of love with him.",1.2
 1909,eng,You met him at the university?,2.4
 1910,eng,Aaah!! My computer is broken!,4.7
 1911,eng,The private colleges and universities of the United States are autonomous.,3
@@ -616,10 +616,10 @@
 1925,eng,The student decided to abridge his paper by taking out unnecessary details.,3.4
 1926,eng,People in the world are always advocating for more freedom and equality.,3.8
 1927,eng,Politicians are always censured for outrageous or inappropriate behavior.,3.7
-1928,eng,Ms. Eichler had a notorious reputation for being austere to her students.,3.4
+1928,eng,Ms.   had a notorious reputation for being austere to her students.,3.4
 1929,eng,"If you don't listen to us, we will have to resort to coercion.",2.3
 1930,eng,"When I have migraines, aspirin doesn't alleviate the pain for me.",2.4
-1931,eng,Spenser's sarcastic and joking remarks are often misinterpreted as signs of ambivalence and often taken too seriously.,3.7
+1931,eng, 's sarcastic and joking remarks are often misinterpreted as signs of ambivalence and often taken too seriously.,3.7
 1932,eng,My mother prefers the arbitrary selection of the lottery machines over my lucky numbers.,3.6
 1933,eng,"To him, hunger was an abstract concept; he always had enough to eat.",3.6
 1934,eng,The convicted drug dealer was willing to comply with the authorities to have his death sentence reduced to a life sentence.,3.1
@@ -627,18 +627,18 @@
 1936,eng,The war on Iraq is a volatile subject of political debate; any wrong word and a heated argument could spark.,3.5
 1937,eng,My next door neighbor is a virtuoso whose skills with the piano have earned him a name among music experts.,3.4
 1938,eng,He was sick of being vilified all the time by people who were jealous of his ability.,3.2
-1939,eng,Sven was so verbose that his friends resorted to calling him a chatterbox.,3.3
+1939,eng,  was so verbose that his friends resorted to calling him a chatterbox.,3.3
 1940,eng,Even people who don't believe in the Catholic church venerate the Pope as a symbolic leader.,3.5
 1941,eng,"Unsure of which suitor she wanted to marry, the princess vacillated, saying now one, now the other.",2.7
 1942,eng,"With the heirless king going crazy and royal family poisoned, the general of the army finally had his chance to usurp the throne.",3.5
 1943,eng,The recent scandals involving altar boys and religious leaders have undermined the faith people have in the Church.,3.9
 1944,eng,"As the plane was approaching turbulence, the pilot asked the passengers aboard the plane to fasten their seat belts.",3
 1945,eng,There is a fine line between speech that is terse and to the point and speech that is too abrupt.,3.9
-1946,eng,"Though his stay in Europe was transient, Spenser felt he had learned much more about interactions with other people from traveling than he did at college.",3.8
-1947,eng,"Jason was a taciturn individual, so it was always a real surprise when he said anything.",3.6
+1946,eng,"Though his stay in Europe was transient,   felt he had learned much more about interactions with other people from traveling than he did at college.",3.8
+1947,eng,"  was a taciturn individual, so it was always a real surprise when he said anything.",3.6
 1948,eng,"The king was tired of his sycophants always praising him, so he sent them away.",3.6
-1949,eng,Spenser would not tell anyone his surreptitious plan to get back at his friends for pranking him.,3.4
-1950,eng,"If Spenser doesn't keep adding and translating sentences, the other contributors will surely surpass him.",3.7
+1949,eng,  would not tell anyone his surreptitious plan to get back at his friends for pranking him.,3.4
+1950,eng,"If   doesn't keep adding and translating sentences, the other contributors will surely surpass him.",3.7
 1951,eng,There was always too much superfluous writing in his essays.,3.8
 1952,eng,"His essay gave only a superficial analysis of the problem, so it was a real surprise to him when he got the highest grade in the class.",2.5
 1953,eng,"It depends what you mean by ""believe"" in God.",2.6
@@ -649,7 +649,7 @@
 1958,eng,"It is a prevalent belief, according to a nationwide poll in the United States, that Muslims are linked with terrorism.",3.4
 1959,eng,"My roommate is prodigal when it comes to spending money on movies; he buys them the day they're released, regardless of price.",3.2
 1960,eng,The profane language used on network television makes many parents with young children not want to subscribe to cable.,3.4
-1961,eng,Freud's insights into human behavior led to him being honored as a profound thinker.,3.5
+1961,eng, 's insights into human behavior led to him being honored as a profound thinker.,3.5
 1962,eng,Food and drink were served in such profusion at the wedding that the bride and groom began to wonder if they should not have invited more guests.,2.5
 1963,eng,The proliferation of Internet usage has given birth to a new generation of young people.,3.4
 1964,eng,"My friends say I'm a prolific writer, but I haven't written anything for months.",2.4
@@ -658,39 +658,39 @@
 1967,eng,"When both girls told John they had feelings for him, he was in a quandary as to which girl he should be with.",3.2
 1968,eng,"Even now, many years after the Cold War, there is still much rancor between the Russians and the Germans, especially in areas once occupied by the Soviet Union.",3.4
 1969,eng,The defense lawyer was confident that he would be able to answer the prosecutor's arguments in his rebuttal.,3.6
-1970,eng,Johnson is a recluse; he prefers to isolate himself from the rest of the students in our class.,3.5
+1970,eng,  is a recluse; he prefers to isolate himself from the rest of the students in our class.,3.5
 1971,eng,Teachers must get tired of rectifying the same mistakes over and over again in their students' papers.,3.8
 1972,eng,The bottles of beer that I brought to the party were redundant; the host's family owned a brewery.,3.3
 1973,eng,The witnesses were able to refute the false testimony of the suspect.,3.4
 1974,eng,The guild leader relegated Vince to a lesser officer because he was abusing his power.,3.5
 1975,eng,Joan of Arc refused to renounce her belief that the voice she heard was from God and none other.,3.6
 1976,eng,"Shocked by the events of September 11th, politicians all over the world condemned the terrorists for their reprehensible deed.",3.2
-1977,eng,James had a great fear of making mistakes in class and being reprimanded.,3.3
+1977,eng,  had a great fear of making mistakes in class and being reprimanded.,3.3
 1978,eng,The principal severely reproved the students whenever they made a mess in the hallway.,3.7
 1979,eng,My parents would repudiate my brother if they ever found out he was gay.,3.7
 1980,eng,"In order to keep his original idea from being copied, Henry resorted to reticence.",3.4
 1981,eng,I would like to retract my previous statement.,2.6
 1982,eng,"To win his audience, the speaker resorted to using rhetorical techniques he learned from his communication courses.",3.5
 1983,eng,His father would never sanction his engagement to a girl who did not share the same religious beliefs as their family.,3.8
-1984,eng,Tim is a huge fan of satirical comedy.,3.5
-1985,eng,"Though Alfred is scrupulous in fulfilling his duties at work, he is less conscientious about his obligations at home.",2.9
-1986,eng,Spenser's mother often scrutinizes him for every small mistake he makes.,3.7
+1984,eng,  is a huge fan of satirical comedy.,3.5
+1985,eng,"Though   is scrupulous in fulfilling his duties at work, he is less conscientious about his obligations at home.",2.9
+1986,eng, 's mother often scrutinizes him for every small mistake he makes.,3.7
 1987,eng,"All the king's subjects, fearing his wrath, often acted quite servile.",3.6
 1988,eng,People are often quite skeptical about things unless given believable proof.,3.8
 1989,eng,"From the doctor's grim expression, it was clear he had somber news for the patient.",3.9
 1990,eng,I always have to check my yard for stagnant pools of water so mosquitoes don't breed there.,3.5
 1991,eng,Sometimes he has difficulty being articulate about his views.,3
-1992,eng,"Peter was an altruistic video game player; he would give items to people who needed them, rather than selling them for personal profit.",3.7
-1993,eng,Jimmy tried to cajole his parents into letting him drive across the country with his friends.,3
+1992,eng,"  was an altruistic video game player; he would give items to people who needed them, rather than selling them for personal profit.",3.7
+1993,eng,  tried to cajole his parents into letting him drive across the country with his friends.,3
 1994,eng,Censorious people delight in casting blame.,3.7
 1995,eng,Pop artists thrive on the adulation of their loyal fans.,3.6
 1996,eng,We must learn to meet adversity gracefully.,3.9
-1997,eng,Bill Clinton spoke in ambiguous language when asked to describe his relationship with Monica Lewinsky.,3.7
+1997,eng,  spoke in ambiguous language when asked to describe his relationship with  .,3.7
 1998,eng,He was a benevolent old man who volunteered to mow his neighbors' lawns for free.,3.6
 1999,eng,His stern tone and loud voice belied his inner sensitivity and caring nature.,3.7
 2000,eng,"The wealthy, self-indulgent young man felt oddly drawn to the strict, ascetic life led by members of some monastic orders.",3.5
 2001,eng,The statue of the Minute Man commemorates the valiant soldiers who fought in the Revolutionary War.,3.4
-2002,eng,"Baffled by Sherlock Holmes' cryptic remarks, Watson wondered whether Holmes was intentionally concealing his thoughts about the crime.",2.6
+2002,eng,"Baffled by  ' cryptic remarks,   wondered whether   was intentionally concealing his thoughts about the crime.",2.6
 2003,eng,What criterion did you use when you elected this essay as the winner?,2.5
 2004,eng,Con artists take advantage of the credulity of inexperienced investors and swindle them out of their money.,3.7
 2005,eng,I cannot dance one single step of Salsa.,2.7
@@ -727,7 +727,7 @@
 2036,eng,"Sorry, I don't think I'm gonna be able to.",2.6
 2037,eng,You had plenty of time.,3.5
 2038,eng,Stop criticizing me!,5
-2039,eng,"Come on! Talk to me, Trang.",4.7
+2039,eng,"Come on! Talk to me,  .",4.7
 2040,eng,I'm almost done.,3.8
 2041,eng,Take the other chair!,4
 2042,eng,How many sandwiches are there left?,2.5
@@ -781,7 +781,7 @@
 2091,eng,I want a massage. I need to relax.,3.8
 2092,eng,You're sick. You have to rest.,3.6
 2093,eng,There's a secret path on the left.,3.3
-2094,eng,Smith has spent years studying the effects of sleep and sleep loss on memory and learning.,3.2
+2094,eng,  has spent years studying the effects of sleep and sleep loss on memory and learning.,3.2
 2095,eng,She's asking for the impossible.,3.6
 2096,eng,He disappeared without a trace.,3.6
 2097,eng,I can place the palms of my hands on the floor without bending my knees.,3.2
@@ -900,7 +900,7 @@
 2214,eng,Check that your username and password are written correctly.,3.7
 2215,eng,Goodbyes are always sad.,3.1
 2216,eng,Don't forget about us!,3.4
-2217,eng,Time has passed very fast.,3.2
+2217,eng,Persone has passed very fast.,3.2
 2218,eng,Which is your luggage?,2.3
 2219,eng,"Open the cupboard to the left, the bottles are in there.",3.5
 2220,eng,There are also nightclubs where you dance flamenco.,3.2
@@ -939,7 +939,7 @@
 2254,eng,Where is your twenty? I'll give you five bucks for it.,1.7
 2255,eng,"Little by little, you will notice improvement in your writings.",3
 2256,eng,I knew it was plastic but it tasted like wood.,3.5
-2257,eng,Sometimes Spenser cares so much about Trang that he leads her to believe he is being overprotective.,1.4
+2257,eng,Sometimes   cares so much about   that he leads her to believe he is being overprotective.,1.4
 2258,eng,There are things in this world which simply cannot be expressed in the form of words.,2.2
 2259,eng,The most perfidious way of harming a cause consists of defending it deliberately with faulty arguments.,3
 2260,eng,Take good care of yourself.,3
@@ -1106,7 +1106,7 @@
 2428,eng,They don't even know why.,4
 2429,eng,I want you to tell me the truth.,5
 2430,eng,You arrived at the moment I left.,3.5
-2431,eng,Muiriel likes to annoy me lately.,3.6
+2431,eng,  likes to annoy me lately.,3.6
 2432,eng,"It's not serious, I don't bear him a grudge.",3.7
 2433,eng,Who is coming with me?,2
 2434,eng,I want to know who is coming with us.,3.9
@@ -1133,7 +1133,7 @@
 2456,eng,It seems to me that the train is late.,3.8
 2457,eng,He learned the news while reading the newspaper.,4
 2459,eng,I don't know if I'll have time to do it.,1.2
-2460,eng,Ask Trang if he's going out this evening.,3.2
+2460,eng,Ask   if he's going out this evening.,3.2
 2461,eng,She's got a fair complexion while her brother is very dark.,4.5
 2462,eng,"In a town you may pass unnoticed, whereas in a village it's impossible.",3.5
 2463,eng,Who said that? It's totally wrong!,4.5
@@ -1156,7 +1156,7 @@
 2480,eng,We're going to eat a lot tonight so I hope you're not on a diet.,4.2
 3257,eng,For once in my life I'm doing a good deed... And it is useless.,2.2
 4719,eng,You need not telephone me.,4.1
-4721,eng,Brian repeatedly told Chris that he owed him a pretty large amount of money.,4.6
+4721,eng,  repeatedly told   that he owed him a pretty large amount of money.,4.6
 4722,eng,How dare you say such a thing to me?,4.3
 4723,eng,You ask me to do the impossible.,3.3
 4724,eng,I brought you a little something.,3
@@ -1171,7 +1171,7 @@
 5973,eng,Does it also work without registration?,1.6
 5975,eng,In which folder did you save the file?,2
 5992,eng,"I heard a cotton candy shop has just opened. Let's go, dudes.",5
-5994,eng,Maria has long hair.,4
+5994,eng,  has long hair.,4
 5997,eng,You don't have to come tomorrow.,4.9
 5999,eng,I have to take medicine.,5
 6002,eng,Please do not take photos here.,4
