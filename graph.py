@@ -1,32 +1,49 @@
 import networkx as nx
 import matplotlib.pyplot as plt
+import pandas as pd
+import preProccess as fin
+import random
 
 # Create an empty weighted directed graph
 G = nx.DiGraph()
+fig, ax = plt.subplots(figsize=(8, 8))
 
+# random_words = random.sample(list(fin.word_final_scores.items()), 10)
+# for word, score in random_words:
+#     print(f"{word}: {score}")
+
+random_samples = random.sample(list(fin.word_final_scores.items()), 10)
+for word, score in random_samples:
+    G.add_node(word, weight = fin.word_final_scores[word])
+    
 # Add nodes for each word with their initial confidence scores
-G.add_node('word1', confidence=0.8)
-G.add_node('word2', confidence=0.6)
-G.add_node('word3', confidence=0.9)
+# word = "innocent"
+# G.add_node(word, weight = fin.word_final_scores[word])
 
-# Add edges between related words with their weights
-G.add_edge('word1', 'word2', weight=0.7)
-G.add_edge('word2', 'word3', weight=0.9)
-G.add_edge('word1', 'word3', weight=0.6)
+# Set the node label and size
+# node_labels = {word: word + "\n" + str(fin.word_final_scores[word])}
+node_labels = {word: word + "\n" for word, score in random_samples}
+node_labels_weight = {word: str(fin.word_final_scores[word]) for word, score in random_samples}
+node_sizes = [2000 * fin.word_final_scores[word] for word, score in random_samples]
 
-# Create a dictionary of node labels with confidence scores
-labels = {node: f"{node} ({G.nodes[node]['confidence']})" for node in G.nodes}
+# # Create a dictionary of edge labels with weights
+# edge_labels = {(u, v): f"{G.edges[u, v]['weight']:.2f}" for u, v in G.edges}
 
-# Create a dictionary of edge labels with weights
-edge_labels = {(u, v): f"{G.edges[u, v]['weight']:.2f}" for u, v in G.edges}
 
-# Draw the graph using spring layout algorithm and custom node and edge colors
-# color of nodes indicate
-pos = nx.spring_layout(G)
-nx.draw_networkx_nodes(G, pos, node_size=1000, node_color='lightblue')
-nx.draw_networkx_edges(G, pos, edge_color='gray', width=2, arrowsize=20, arrowstyle='->')
-nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=12, font_family='sans-serif')
-nx.draw_networkx_labels(G, pos, labels, font_size=12, font_family='sans-serif')
+# color of nodes indicate confidence level DO THIS LATER    
+#///////////////
+#Position of the string for the node
+pos = nx.fruchterman_reingold_layout(G)
+#Position of the weight value
+label_pos_weight = {n: (x, y-0.04) for n, (x, y) in pos.items()}
+#Displays the color and size of node
+nx.draw_networkx_nodes(G, pos, node_size=2000, node_color='lightblue')
+#Displays text inside node
+
+nx.draw_networkx_labels(G, pos, labels=node_labels, font_size=12, font_family='sans-serif')
+nx.draw_networkx_labels(G, label_pos_weight, labels=node_labels_weight, font_size=9, font_family='sans-serif')
+#///////////////////
+
 
 # Display the graph
 plt.axis('off')
