@@ -3,10 +3,8 @@ import pandas as pd
 import random
 import re
 import contractions
-from random import uniform
 import csv
 #import stopwords 
-
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
@@ -91,7 +89,6 @@ print(f"Total words in the dictionary: {len(word_final_scores)}")
 random_words = random.sample(list(word_final_scores.items()), 10)
 for word, score in random_words:
     print(f"{word}: {score}")
-<<<<<<< HEAD
 
 
 
@@ -211,5 +208,3 @@ with open('word_scores.csv', 'w', newline='') as csvfile:
     for word, scores in word_scores.items():
         avg_score = sum(scores) / len(scores) if isinstance(scores, list) else scores
         writer.writerow({'Word': word, 'Score': avg_score})
-=======
->>>>>>> 7cb8e628229d64aa7f62c956832b0dbc9eb7d68b
