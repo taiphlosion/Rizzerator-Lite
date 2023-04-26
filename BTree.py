@@ -2,13 +2,14 @@
 import pandas as pd
 import math
 
-#sort all score values from lowest to highest
 mast = pd.read_csv('word_scores.csv')
-mast = mast.sort_values(by=['Score'])
-mast.to_csv('word_scores.csv')
+
+# #sort all score values from lowest to highest
+# mast = mast.sort_values(by=['Score'])
+# mast.to_csv('word_scores.csv')
 
 #round all scores values down to just 1 decimal place
-mast['Score'] = mast['Score'].apply(lambda x: math.floor(round(x, 1)))
+mast['Score'] = round(mast['Score'], 1)
 mast.to_csv('word_scores_round.csv')
 work_val = pd.read_csv('word_scores_round.csv')
 
@@ -101,7 +102,7 @@ for index, row in work_val.iterrows():
         con_val[score] = []
     con_val[score].append(word)
 
-print(con_val)
+# print(con_val)
 
 
 # Create a new tree
