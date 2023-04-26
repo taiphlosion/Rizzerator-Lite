@@ -3,7 +3,7 @@ import pandas as pd
 import math
 
 mast = pd.read_csv('word_scores.csv')
-# mast_round = pd.read_csv('word_scores_round.csv')
+mast_round = pd.read_csv('word_scores_round.csv')
 
 # #sort all score values from lowest to highest
 # mast = mast.sort_values(by=['Score'])
@@ -86,22 +86,18 @@ class BTree:
                     i += 1
             self._insert_non_full(node.children[i], key, words)
 
+con_val = {}
 
-# def word_number_org(word, confidence):
-#     con_val = {round(row['Score'], 1): row['Word'] for index, row in mast.iterrows()}
-#     list_name += confidence
-    
-#     print (word)
-#     print (confidence)
+def word_number_org():
+    for index, row in mast_round.iterrows():
+        score = row['Score']
+        word = row['Word']
+        if score not in con_val:
+            con_val[score] = []
+        con_val[score].append(word)
 
-# con_val = {}
-
-# for index, row in mast_round.iterrows():
-#     score = row['Score']
-#     word = row['Word']
-#     if score not in con_val:
-#         con_val[score] = []
-#     con_val[score].append(word)
+word_number_org()
+print (con_val.keys())
 
 # for i in range(10, 51):
 #     print(i/10,con_val[i/10])
