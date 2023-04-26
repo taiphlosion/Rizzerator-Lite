@@ -3,15 +3,16 @@ import pandas as pd
 import math
 
 mast = pd.read_csv('word_scores.csv')
+# mast_round = pd.read_csv('word_scores_round.csv')
 
 # #sort all score values from lowest to highest
 # mast = mast.sort_values(by=['Score'])
 # mast.to_csv('word_scores.csv')
 
-#round all scores values down to just 1 decimal place
-mast['Score'] = round(mast['Score'], 1)
-mast.to_csv('word_scores_round.csv')
-work_val = pd.read_csv('word_scores_round.csv')
+# #round all scores values down to just 1 decimal place and rounds down like 4.99 would be rounded down to 4.9
+# mast['Score'] = mast['Score'].apply(lambda x: math.floor(x * 10) / 10)
+# mast.to_csv('word_scores_round.csv')
+# work_val = pd.read_csv('word_scores_round.csv')
 
 class Node:
     def __init__(self, t, is_leaf=True):
@@ -93,16 +94,18 @@ class BTree:
 #     print (word)
 #     print (confidence)
 
-con_val = {}
+# con_val = {}
 
-for index, row in work_val.iterrows():
-    score = row['Score']
-    word = row['Word']
-    if score not in con_val:
-        con_val[score] = []
-    con_val[score].append(word)
+# for index, row in mast_round.iterrows():
+#     score = row['Score']
+#     word = row['Word']
+#     if score not in con_val:
+#         con_val[score] = []
+#     con_val[score].append(word)
 
-# print(con_val)
+# for i in range(10, 51):
+#     print(i/10,con_val[i/10])
+#     print("\n")
 
 
 # Create a new tree
