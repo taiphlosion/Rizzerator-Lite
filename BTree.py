@@ -1,4 +1,4 @@
-import preProccess as pre
+# import preProccess as pre
 
 class Node:
     def __init__(self, t, is_leaf=True):
@@ -76,20 +76,7 @@ class BTree:
 # Create a new tree
 tree = BTree(3)
 
-# # Insert some key-value pairs
-# for word, score in pre.random_words:
-#     tree.insert(round(score, 1), word)
-#     print(round(score, 1))
-#     # print(f"{word}: {score}")
 
-# print ("\n")
-
-# for i in range(10, 51):
-#     score = i / 10.0
-#     print(round(score, 1), end=':')
-#     result = tree.search(round(score, 1))
-#     print(result, end='\n')
-#     print("\n")
     
 
 
