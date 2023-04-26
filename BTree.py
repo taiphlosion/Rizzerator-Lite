@@ -1,4 +1,7 @@
 # import preProccess as pre
+import pandas as pd
+
+mast = pd.read_csv('word_scores.csv')
 
 class Node:
     def __init__(self, t, is_leaf=True):
@@ -73,32 +76,26 @@ class BTree:
             self._insert_non_full(node.children[i], key, words)
 
 
+def word_number_org(word, confidence):
+    list_name = "word_"
+    list_name += confidence
+    
+    print (word)
+    print (confidence)
+
+mast = pd.read_csv('word_scores.csv')
+
+my_dict = {round(row['Score'], 1): row['Word'] for index, row in mast.iterrows()}
+
+print(my_dict)
+
+
 # Create a new tree
 tree = BTree(3)
 
-
-    
-
-
-tree.insert(1.5, "apple")
-tree.insert(1.5, "apples")
-tree.insert(1.5, "appless")
-tree.insert(1.5, "applessss")
-
 tree.insert(1.7, "banana")
-tree.insert(1.8, "sex")
 tree.insert(1.8, ["grape", "trees", "glass", "dirt"])
 
-tree.insert(1.9, "kiwi")
-
-print ("\n")
-print ("\n")
-print (tree.search(1.8))
-
-# Search for a key
-# result = tree.search(0.8)
-# print(result)  # Output: ['pear', 'grape']
-
-# # Search for a deleted key
-# result = tree.search(0.5)
-# print(result)  # Output: None
+# print ("\n")
+# print ("\n")
+# print (tree.search(1.8))
