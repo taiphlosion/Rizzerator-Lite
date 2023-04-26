@@ -1,7 +1,20 @@
 # import preProccess as pre
 import pandas as pd
+import math
+from itertools import chain
 
+#main master sheet
 mast = pd.read_csv('word_scores.csv')
+
+# #sort all score values from lowest to highest
+# mast = mast.sort_values(by=['Score'])
+# mast.to_csv('word_scores_ordered.csv')
+
+#round all scores values down to just 1 decimal place and rounds down like 4.99 would be rounded down to 4.9
+#note that this is not ordered
+# mast['Score'] = mast['Score'].apply(lambda x: math.floor(x * 10) / 10)
+# mast.to_csv('word_scores_round.csv')
+# work_val = pd.read_csv('word_scores_round.csv')
 
 class Node:
     def __init__(self, t, is_leaf=True):
@@ -75,27 +88,31 @@ class BTree:
                     i += 1
             self._insert_non_full(node.children[i], key, words)
 
+con_val = {}
 
-def word_number_org(word, confidence):
-    list_name = "word_"
-    list_name += confidence
-    
-    print (word)
-    print (confidence)
+def word_number_org():
+    for index, row in work_val.iterrows():
+        score = row['Score']
+        word = row['Word']
+        if score not in con_val:
+            con_val[score] = []
+        con_val[score].append(word)
 
-mast = pd.read_csv('word_scores.csv')
+def flatten_list(lst):
+    if isinstance(lst, list) and any(isinstance(elem, list) for elem in lst):
+        return list(chain.from_iterable(lst))
+    else:
+        return lst
 
-my_dict = {round(row['Score'], 1): row['Word'] for index, row in mast.iterrows()}
-
-print(my_dict)
-
+word_number_org()
 
 # Create a new tree
 tree = BTree(3)
 
-tree.insert(1.7, "banana")
-tree.insert(1.8, ["grape", "trees", "glass", "dirt"])
+for i in range(10, 50):
+    j = i/10
+    tree.insert(j, con_val[j])
+
 
 # print ("\n")
 # print ("\n")
-# print (tree.search(1.8))
