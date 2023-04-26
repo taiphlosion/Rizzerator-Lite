@@ -3,7 +3,7 @@ import pandas as pd
 import math
 
 mast = pd.read_csv('word_scores.csv')
-mast_round = pd.read_csv('word_scores_round.csv')
+mast_round = pd.read_csv('word_scores_round_ordered.csv')
 
 # #sort all score values from lowest to highest
 # mast = mast.sort_values(by=['Score'])
@@ -97,19 +97,17 @@ def word_number_org():
         con_val[score].append(word)
 
 word_number_org()
-print (con_val.keys())
 
 # for i in range(10, 51):
 #     print(i/10,con_val[i/10])
 #     print("\n")
 
-
 # Create a new tree
 tree = BTree(3)
+score = 3.3
 
-tree.insert(1.7, "banana")
-tree.insert(1.8, ["grape", "trees", "glass", "dirt"])
+tree.insert(score, con_val[score])
 
 # print ("\n")
 # print ("\n")
-# print (tree.search(1.8))
+print (tree.search(score))
