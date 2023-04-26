@@ -1,7 +1,16 @@
 # import preProccess as pre
 import pandas as pd
+import math
 
+#sort all score values from lowest to highest
 mast = pd.read_csv('word_scores.csv')
+mast = mast.sort_values(by=['Score'])
+mast.to_csv('word_scores.csv')
+
+#round all scores values down to just 1 decimal place
+mast['Score'] = mast['Score'].apply(lambda x: math.floor(round(x, 1)))
+mast.to_csv('word_scores_round.csv')
+work_val = pd.read_csv('word_scores_round.csv')
 
 class Node:
     def __init__(self, t, is_leaf=True):
@@ -76,18 +85,23 @@ class BTree:
             self._insert_non_full(node.children[i], key, words)
 
 
-def word_number_org(word, confidence):
-    list_name = "word_"
-    list_name += confidence
+# def word_number_org(word, confidence):
+#     con_val = {round(row['Score'], 1): row['Word'] for index, row in mast.iterrows()}
+#     list_name += confidence
     
-    print (word)
-    print (confidence)
+#     print (word)
+#     print (confidence)
 
-mast = pd.read_csv('word_scores.csv')
+con_val = {}
 
-my_dict = {round(row['Score'], 1): row['Word'] for index, row in mast.iterrows()}
+for index, row in work_val.iterrows():
+    score = row['Score']
+    word = row['Word']
+    if score not in con_val:
+        con_val[score] = []
+    con_val[score].append(word)
 
-print(my_dict)
+print(con_val)
 
 
 # Create a new tree
