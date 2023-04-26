@@ -1,15 +1,17 @@
 # import preProccess as pre
 import pandas as pd
 import math
+from itertools import chain
 
+#main master sheet
 mast = pd.read_csv('word_scores.csv')
-mast_round = pd.read_csv('word_scores_round_ordered.csv')
 
 # #sort all score values from lowest to highest
 # mast = mast.sort_values(by=['Score'])
-# mast.to_csv('word_scores.csv')
+# mast.to_csv('word_scores_ordered.csv')
 
-# #round all scores values down to just 1 decimal place and rounds down like 4.99 would be rounded down to 4.9
+#round all scores values down to just 1 decimal place and rounds down like 4.99 would be rounded down to 4.9
+#note that this is not ordered
 # mast['Score'] = mast['Score'].apply(lambda x: math.floor(x * 10) / 10)
 # mast.to_csv('word_scores_round.csv')
 # work_val = pd.read_csv('word_scores_round.csv')
@@ -89,25 +91,28 @@ class BTree:
 con_val = {}
 
 def word_number_org():
-    for index, row in mast_round.iterrows():
+    for index, row in work_val.iterrows():
         score = row['Score']
         word = row['Word']
         if score not in con_val:
             con_val[score] = []
         con_val[score].append(word)
 
-word_number_org()
+def flatten_list(lst):
+    if isinstance(lst, list) and any(isinstance(elem, list) for elem in lst):
+        return list(chain.from_iterable(lst))
+    else:
+        return lst
 
-# for i in range(10, 51):
-#     print(i/10,con_val[i/10])
-#     print("\n")
+word_number_org()
 
 # Create a new tree
 tree = BTree(3)
-score = 3.3
 
-tree.insert(score, con_val[score])
+for i in range(10, 50):
+    j = i/10
+    tree.insert(j, con_val[j])
+
 
 # print ("\n")
 # print ("\n")
-print (tree.search(score))
