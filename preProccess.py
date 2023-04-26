@@ -56,7 +56,7 @@ def preprocess_sentence(sentence):
 df['Sentence'] = df['Sentence'].apply(preprocess_sentence)
 
 # Print the updated dataframe
-print(df.head())
+# print(df.head())
 
 # Define a function to tokenize a sentence and return a list of words
 def tokenize(sentence):
@@ -89,8 +89,8 @@ for word, scores in word_scores.items():
 
 # Print 10 random words in the dictionary with their associated scores
 random_words = random.sample(list(word_final_scores.items()), 10)
-# for word, score in random_words:
-#     # print(f"{word}: {score}")
+for word, score in random_words:
+    print(f"{word}: {score}")
 
 # # BEGIN ADDING NEW WORDS TO OUR DICTIONARY
 # API_KEY = "0191a99ddfmsh88ff5e3602511e9p1bf4e8jsn6e7eb376b38d"
