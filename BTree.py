@@ -22,11 +22,12 @@ work_val = pd.read_csv('FinalDic_Round_Ordered.csv')
 class Node:
     def __init__(self, t, is_leaf=True):
         self.t = t  # the minimum degree of the node
-        self.keys = []  # a list of keys (confidence score values)
+        self.keys = []  # a list of keys (confidence score values) For the purpose of this project, it just needs to hold one
         self.words = []  # a list of associated words for each key
         self.children = []  # a list of child nodes
-        self.is_leaf = is_leaf
+        self.is_leaf = is_leaf #Bool to check if node is a leaf
 
+    #Uses recursion search to find the node with the the desired confidence value like (4.7)
     def search(self, key):
         i = 0
         while i < len(self.keys) and key > self.keys[i]:
@@ -38,6 +39,7 @@ class Node:
         else:
             return self.children[i].search(key)
 
+    #Detects if node is full and then split accordingly if it passes limit size
     def split_child(self, i, child):
         new_child = Node(self.t, is_leaf=child.is_leaf)
         mid = self.t - 1
@@ -91,8 +93,10 @@ class BTree:
                     i += 1
             self._insert_non_full(node.children[i], key, words)
 
+#A dictionary to hold the list of words that is associated with the key (confidence value)
 con_val = {}
 
+#Function push all values from the data set into a dictionary to later be inserted into the tree
 def word_number_org():
     for index, row in work_val.iterrows():
         score = row['Score']
@@ -101,27 +105,33 @@ def word_number_org():
             con_val[score] = []
         con_val[score].append(word)
 
+#Some nodes have a list inside a list, this is to help rememdy this and make it just a normal list
+#Makes it easier to sort and traverse the tree
 def flatten_list(lst):
     if isinstance(lst, list) and any(isinstance(elem, list) for elem in lst):
         return list(chain.from_iterable(lst))
     else:
         return lst
 
+#Function to return the top 10 words of the score of a node (Like the top 10 most confident words with a score of 4.7)
 def top_10(lst):
     print ("Top 10:", end ="\n")
     last_ten = lst[-10:]
     return last_ten
 
+#Function to return the bottom 10 words of the score of a node (Like the top 10 most unconfident words with a score of 4.7)
 def bottom_10(lst):
     print ("Bottom 10:", end="\n")
     bottom_10 = lst[:10]
     return bottom_10
 
+#Function to return the random 10 words of the score of a node (Like the 10 random words with a score of 4.7)
 def random_10(lst):
     print ("Random 10:", end="\n")
     random_10 = random.sample(lst, 10)
     return random_10
 
+#Searches through each node of the tree and checks the list of words of each node
 def search_word(word_search):
     found = False
     for i in range(10, 51):
@@ -137,13 +147,14 @@ def search_word(word_search):
             print ("Word not found in tree")
             return
 
-
+#Function to get all data ready to be inserted into the tree
 word_number_org()
 
 # Create a new tree
-# Must set tree to degree 21 to work properly
+# Must set tree to degree 21 to work properly, if not some nodes might have overlapping words from different scores. 
 tree = BTree(21)
 
+#Inserts all values into the tree
 for i in range(10, 51):
     j = i/10
     tree.insert(j, con_val[j])
