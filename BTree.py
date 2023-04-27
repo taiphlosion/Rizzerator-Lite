@@ -1,3 +1,21 @@
+# import preProccess as pre
+import pandas as pd
+import math
+from itertools import chain
+
+#main master sheet
+# mast = pd.read_csv('word_scores.csv')
+
+# #sort all score values from lowest to highest
+# mast = mast.sort_values(by=['Score'])
+# mast.to_csv('word_scores_ordered.csv')
+
+#round all scores values down to just 1 decimal place and rounds down like 4.99 would be rounded down to 4.9
+#note that this is not ordered
+# mast['Score'] = mast['Score'].apply(lambda x: math.floor(x * 10) / 10)
+# mast_round = pd.read_csv('word_scores_round_ordered.csv')
+work_val = pd.read_csv('word_scores_round_ordered.csv')
+
 class Node:
     def __init__(self, t, is_leaf=True):
         self.t = t  # the minimum degree of the node
@@ -70,20 +88,48 @@ class BTree:
                     i += 1
             self._insert_non_full(node.children[i], key, words)
 
+con_val = {}
+
+def word_number_org():
+    for index, row in work_val.iterrows():
+        score = row['Score']
+        word = row['Word']
+        if score not in con_val:
+            con_val[score] = []
+        con_val[score].append(word)
+
+def flatten_list(lst):
+    if isinstance(lst, list) and any(isinstance(elem, list) for elem in lst):
+        return list(chain.from_iterable(lst))
+    else:
+        return lst
+
+def top_10(lst):
+    print ('top 10')
+    last_ten = lst[-10:]
+    return last_ten
+
+
+def bottom_10(lst):
+    print ('bottom 10')
+    bottom_10 = lst[:10]
+    return bottom_10
+
+def random_10(lst):
+    print ('random 10')
+
+
+word_number_org()
 
 # Create a new tree
 tree = BTree(3)
 
-# Insert some key-value pairs
-tree.insert(1.5, ["apple", "ass", "bob", "suckas"])
-tree.insert(1.7, "banana")
-tree.insert(1.8, ["grape", "trees", "glass", "dirt"])
-tree.insert(1.9, "kiwi")
+for i in range(10, 50):
+    j = i/10
+    tree.insert(j, con_val[j])
 
-# Search for a key
-result = tree.search(0.8)
-print(result)  # Output: ['pear', 'grape']
-
-# Search for a deleted key
-result = tree.search(0.5)
-print(result)  # Output: None
+print (tree.search(4.2))
+print(top_10(flatten_list(tree.search(4.2))))
+# print(bottom_10(tree.search(4.2)))
+# print ("\n")
+# print ("\n")
