@@ -3,7 +3,7 @@ import math
 from itertools import chain
 import random
 
-#main master sheet
+# main master sheet
 # mast = pd.read_csv('FinalDictionary.csv')
 # mast['Score'] = mast['Score'].apply(lambda x: math.floor(x * 10) / 10)
 # mast.to_csv('FinalDic_Round.csv')
@@ -18,6 +18,7 @@ import random
 # mast.to_csv('FinalDic_Round_Ordered.csv')
 
 work_val = pd.read_csv('FinalDic_Round_Ordered.csv')
+
 
 class Node:
     def __init__(self, t, is_leaf=True):
@@ -58,6 +59,7 @@ class Node:
             new_child.children = child.children[mid+1:]
             child.children = child.children[:mid+1]
 
+
 class BTree:
     def __init__(self, t):
         self.root = Node(t, is_leaf=True)
@@ -91,7 +93,9 @@ class BTree:
                     i += 1
             self._insert_non_full(node.children[i], key, words)
 
+
 con_val = {}
+
 
 def word_number_org():
     for index, row in work_val.iterrows():
@@ -101,26 +105,28 @@ def word_number_org():
             con_val[score] = []
         con_val[score].append(word)
 
+
 def flatten_list(lst):
     if isinstance(lst, list) and any(isinstance(elem, list) for elem in lst):
         return list(chain.from_iterable(lst))
     else:
         return lst
 
+
 def top_10(lst):
-    print ("Top 10:", end ="\n")
     last_ten = lst[-10:]
     return last_ten
 
+
 def bottom_10(lst):
-    print ("Bottom 10:", end="\n")
     bottom_10 = lst[:10]
     return bottom_10
 
+
 def random_10(lst):
-    print ("Random 10:", end="\n")
     random_10 = random.sample(lst, 10)
     return random_10
+
 
 def search_word(word_search):
     found = False
@@ -130,11 +136,9 @@ def search_word(word_search):
         if (not found):
             for word in list:
                 if word == word_search:
-                    print ('"' + word + '"', "found with a confidence score of:", j)
                     found = True
-                    return 
+                    return
         if (j == 5.0):
-            print ("Word not found in tree")
             return
 
 
@@ -151,14 +155,12 @@ for i in range(10, 51):
 # In main, use this function to search for word in the tree
 search_word("bastille")
 
-#Values are from the user. Current one is default
+# Values are from the user. Current one is default
 k = 4.7
-#For main, use everything inside the print statement for the main, if you want a list of words associated with the score
-#Words with scores closest to the k value (ascending order), making it the least confident for that bucket (4.7)
+# For main, use everything inside the print statement for the main, if you want a list of words associated with the score
+# Words with scores closest to the k value (ascending order), making it the least confident for that bucket (4.7)
 print(bottom_10(flatten_list(tree.search(k))))
-#10 words with scores fartest from the k value (ascending order), making it the most confident for that bucket (4.7)
+# 10 words with scores fartest from the k value (ascending order), making it the most confident for that bucket (4.7)
 print(top_10(flatten_list(tree.search(k))))
-#Random words with scores in that bucket (4.7) (no specific order), generates a list of 10
+# Random words with scores in that bucket (4.7) (no specific order), generates a list of 10
 print(random_10(flatten_list(tree.search(k))))
-
-

@@ -29,7 +29,7 @@ print("\n")
 open = True
 
 # Loading data into Hash Table
-data = pd.read_csv("word_scores.csv")
+data = pd.read_csv("FinalDictionary.csv")
 ht = HashTable(300000)
 error_words = []
 for key, value in data.values:
@@ -37,6 +37,17 @@ for key, value in data.values:
     if type(key) == str:
         ht.insert(key, rounded_val)
 
+
+# Loading data into BTree
+bt = BTree(21)
+word_number_org()
+for i in range(10, 51):
+    j = i/10
+    tree.insert(j, con_val[j])
+
+print("TEST: ")
+print(search_word("bastille"))
+print(bottom_10(flatten_list(tree.search(5.0))))
 
 while(open):
 
@@ -60,23 +71,25 @@ while(open):
                 f"{bcolors.bcolors.OKGREEN}Find top 10 words with the highest confidence rating:{bcolors.bcolors.ENDC}")
             print()
 
-            t = time.process_time()
+            t = time.process_time_ns()
             list = ht.get_top_scores()
-            elapsed_time = time.process_time() - t
+            elapsed_time = time.process_time_ns() - t
 
             for idx, pair in enumerate(list):
                 print(f"{idx+1}" + ".", pair[0].capitalize())
             print()
             print(f"{bcolors.bcolors.HEADER}Hash Table{bcolors.bcolors.ENDC}")
-            print("Elapsed time:", round(elapsed_time, 3), "seconds")
+            print("Elapsed time:", round(
+                elapsed_time * pow(10, -6), 3), "[ms]")
 
-            t = time.process_time()
-            # Todo: Implement function for BTree
-            elapsed_time = time.process_time() - t
+            t = time.process_time_ns()
+            list = top_10(flatten_list(tree.search(5.0)))
+            elapsed_time = time.process_time_ns() - t
 
             print()
             print(f"{bcolors.bcolors.HEADER}BTree{bcolors.bcolors.ENDC}")
-            print("Elapsed time:", round(elapsed_time, 3), "seconds")
+            print("Elapsed time:", round(
+                elapsed_time * pow(10, -6), 3), "[ms]")
             time.sleep(2)
         case "3":
             os.system('clear')
@@ -86,23 +99,25 @@ while(open):
                 f"{bcolors.bcolors.OKGREEN}Find top 10 words with the lowest confidence rating:{bcolors.bcolors.ENDC}")
             print()
 
-            t = time.process_time()
+            t = time.process_time_ns()
             list = ht.get_top_scores_lowest()
-            elapsed_time = time.process_time() - t
+            elapsed_time = time.process_time_ns() - t
 
             for idx, pair in enumerate(list):
                 print(f"{idx+1}" + ".", pair[0].capitalize())
             print()
             print(f"{bcolors.bcolors.HEADER}Hash Table{bcolors.bcolors.ENDC}")
-            print("Elapsed time:", round(elapsed_time, 3), "seconds")
+            print("Elapsed time:", round(
+                elapsed_time * pow(10, -6), 3), "[ms]")
 
-            t = time.process_time()
-            # Todo: Implement function for BTree
-            elapsed_time = time.process_time() - t
+            t = time.process_time_ns()
+            list = bottom_10(flatten_list(tree.search(1.0)))
+            elapsed_time = time.process_time_ns() - t
 
             print()
             print(f"{bcolors.bcolors.HEADER}BTree{bcolors.bcolors.ENDC}")
-            print("Elapsed time:", round(elapsed_time, 3), "seconds")
+            print("Elapsed time:", round(
+                elapsed_time * pow(10, -6), 3), "[ms]")
             time.sleep(2)
         case "4":
             os.system('clear')
@@ -111,39 +126,84 @@ while(open):
             print(
                 f"{bcolors.bcolors.OKGREEN}Search for word data:{bcolors.bcolors.ENDC}")
             print()
-            retry = True
-            while(retry):
-                value = input("Input a word: ")
+            print("1. Search for score of specific word")
+            print("2. Search for words with specific score")
+            value = input("\nSelect an option: ")
+            match value:
+                case "1":
+                    retry = True
+                    while(retry):
+                        value = input("Input a word: ")
+                        t = time.process_time_ns()
+                        score = ht.search(value.lower())
+                        elapsed_time = time.process_time_ns() - t
 
-                t = time.process_time_ns()
-                score = ht.search(value.lower())
-                elapsed_time = time.process_time_ns() - t
+                        if score == None:
+                            print()
+                            print(
+                                f"{bcolors.bcolors.FAIL}Input Invalid, please try again...{bcolors.bcolors.ENDC}")
+                            time.sleep(1)
+                        else:
+                            print(
+                                f"{bcolors.bcolors.BOLD}Word:{bcolors.bcolors.ENDC}", value.capitalize())
+                            print(
+                                f"{bcolors.bcolors.BOLD}Score:{bcolors.bcolors.ENDC}", score)
+                            print()
+                            print(
+                                f"{bcolors.bcolors.HEADER}Hash Table{bcolors.bcolors.ENDC}")
+                            print("Elapsed time:", round(
+                                elapsed_time * pow(10, -6), 3), "[ms]")
 
-                if score == None:
-                    print()
-                    print(
-                        f"{bcolors.bcolors.FAIL}Input Invalid, please try again...{bcolors.bcolors.ENDC}")
-                    time.sleep(1)
-                else:
-                    print(
-                        f"{bcolors.bcolors.BOLD}Word:{bcolors.bcolors.ENDC}", value.capitalize())
-                    print(
-                        f"{bcolors.bcolors.BOLD}Score:{bcolors.bcolors.ENDC}", score)
-                    print()
-                    print(
-                        f"{bcolors.bcolors.HEADER}Hash Table{bcolors.bcolors.ENDC}")
-                    print("Elapsed time:", round(
-                        elapsed_time, 3), "nanoseconds")
-                    retry = False
+                            t = time.process_time_ns()
+                            score = search_word(value.lower())
+                            elapsed_time = time.process_time_ns() - t
 
-            t = time.process_time()
-            # Todo: Implement function for BTree
-            elapsed_time = time.process_time() - t
+                            print(
+                                f"{bcolors.bcolors.HEADER}BTree{bcolors.bcolors.ENDC}")
+                            print("Elapsed time:", round(
+                                elapsed_time * pow(10, -6), 3), "[ms]")
+                            time.sleep(2)
+                            retry = False
+                case "2":
+                    retry = True
+                    while(retry):
 
-            print()
-            print(f"{bcolors.bcolors.HEADER}BTree{bcolors.bcolors.ENDC}")
-            print("Elapsed time:", round(elapsed_time, 3), "seconds")
-            time.sleep(2)
+                        try:
+                            value = float(
+                                input("Input a score (must be an Number): "))
+                            print()
+                        except ValueError:
+                            print(
+                                f"{bcolors.bcolors.FAIL}Input Invalid, please try again...{bcolors.bcolors.ENDC}")
+                            print()
+                            continue
+                        else:
+                            time_ht = time.process_time_ns()
+                            list = ht.find_words_with_score(value)
+                            elapsed_time_ht = time.process_time_ns() - time_ht
+
+                            t = time.process_time_ns()
+                            list = random_10(flatten_list(tree.search(value)))
+                            elapsed_time = time.process_time_ns() - t
+
+                            print(
+                                f"{bcolors.bcolors.BOLD}10 words with that score:{bcolors.bcolors.ENDC}")
+                            print(list)
+                            print()
+                            print(
+                                f"{bcolors.bcolors.HEADER}Hash Table{bcolors.bcolors.ENDC}")
+                            print("Elapsed time:", round(
+                                elapsed_time_ht * pow(10, -6), 3), "[ms]")
+                            print()
+                            print(
+                                f"{bcolors.bcolors.HEADER}BTree{bcolors.bcolors.ENDC}")
+                            print("Elapsed time:", round(
+                                elapsed_time * pow(10, -6), 3), "[ms]")
+                            time.sleep(2)
+
+                            retry = False
+                case _:
+                    print("Please try again.")
         case "5":
             print("Thank you for Rizzing with us!")
             open = False

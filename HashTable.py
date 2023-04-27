@@ -5,18 +5,14 @@ class HashTable:
         self.buckets = [None] * self.capacity
 
     def hash(self, word):
-        """
-        A simple hash function that takes a word as input and returns a hash value.
-        """
+
         hash_value = 0
         for char in word:
             hash_value += ord(char)
         return hash_value % self.capacity
 
     def insert(self, word, score):
-        """
-        Inserts a key-value pair into the hashtable.
-        """
+
         index = self.hash(word)
         if self.buckets[index] is None:
             self.buckets[index] = []
@@ -28,9 +24,7 @@ class HashTable:
         self.size += 1
 
     def search(self, word):
-        """
-        Searches for a specific key in the hashtable and returns its value.
-        """
+
         index = self.hash(word)
         if self.buckets[index] is None:
             return None
@@ -40,9 +34,7 @@ class HashTable:
         return None
 
     def get_top_scores(self, n=10):
-        """
-        Returns the n words with the highest scores in the hashtable.
-        """
+
         scores = []
         for bucket in self.buckets:
             if bucket is None:
@@ -53,9 +45,7 @@ class HashTable:
         return scores[:n]
 
     def get_top_scores_lowest(self, n=10):
-        """
-        Returns the n words with the highest scores in the hashtable.
-        """
+
         scores = []
         for bucket in self.buckets:
             if bucket is None:
@@ -64,3 +54,16 @@ class HashTable:
                 scores.append(pair)
         scores.sort(key=lambda x: x[1], reverse=False)
         return scores[:n]
+
+    def find_words_with_score(self, score, num_words=10):
+
+        matching_words = []
+        for bucket in self.buckets:
+            if bucket is None:
+                continue
+            for pair in bucket:
+                if pair[1] == score:
+                    matching_words.append(pair[0])
+                    if len(matching_words) == num_words:
+                        return matching_words
+        return matching_words
