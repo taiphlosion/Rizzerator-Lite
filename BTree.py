@@ -16,6 +16,7 @@ import random
 # #note that this is not ordered
 # mast['Score'] = mast['Score'].apply(lambda x: math.floor(x * 10) / 10)
 # mast.to_csv('FinalDic_Round_Ordered.csv')
+
 work_val = pd.read_csv('FinalDic_Round_Ordered.csv')
 
 class Node:
@@ -120,8 +121,6 @@ def random_10(lst):
     print ("Random 10:", end="\n")
     random_10 = random.sample(lst, 10)
     return random_10
-    
-
 
 word_number_org()
 
