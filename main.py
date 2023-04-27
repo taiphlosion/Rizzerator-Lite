@@ -45,9 +45,7 @@ for i in range(10, 51):
     j = i/10
     tree.insert(j, con_val[j])
 
-print("TEST: ")
-print(search_word("bastille"))
-print(bottom_10(flatten_list(tree.search(5.0))))
+commonly = ["be", "and", "of", "a", "in", "to", "have", "too", "it", "i"]
 
 while(open):
 
@@ -62,7 +60,16 @@ while(open):
 
     match value:
         case "1":
-            print("Bruh")
+            os.system('clear')
+            print()
+            print()
+            print(
+                f"{bcolors.bcolors.OKGREEN}Top 10 most commonly used words:{bcolors.bcolors.ENDC}")
+            print()
+
+            for idx, word in enumerate(commonly):
+                print(f"{idx+1}" + ".", word.capitalize())
+            print()
         case "2":
             os.system('clear')
             print()
