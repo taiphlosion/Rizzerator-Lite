@@ -122,6 +122,22 @@ def random_10(lst):
     random_10 = random.sample(lst, 10)
     return random_10
 
+def search_word(word_search):
+    found = False
+    for i in range(10, 51):
+        j = i/10
+        list = tree.search(j)
+        if (not found):
+            for word in list:
+                if word == word_search:
+                    print ('"' + word + '"', "found with a confidence score of:", j)
+                    found = True
+                    return 
+        if (j == 5.0):
+            print ("Word not found in tree")
+            return
+
+
 word_number_org()
 
 # Create a new tree
@@ -132,11 +148,18 @@ for i in range(10, 51):
     j = i/10
     tree.insert(j, con_val[j])
 
-for i in range(10, 51):
-    k = i/10
-    print (k, end=":\n")
-    print(bottom_10(flatten_list(tree.search(k))))
-    print(top_10(flatten_list(tree.search(k))))
-    print(random_10(flatten_list(tree.search(k))))
-    print ("\n")
+search_word("bastille")
+
+
+
+
+# search_word(tree, word_search)
+
+# for i in range(10, 51):
+#     k = i/10
+#     print (k, end=":\n")
+#     print(bottom_10(flatten_list(tree.search(k))))
+#     print(top_10(flatten_list(tree.search(k))))
+#     print(random_10(flatten_list(tree.search(k))))
+#     print ("\n")
 
