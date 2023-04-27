@@ -4,7 +4,7 @@ import math
 from itertools import chain
 
 #main master sheet
-mast = pd.read_csv('word_scores.csv')
+# mast = pd.read_csv('word_scores.csv')
 
 # #sort all score values from lowest to highest
 # mast = mast.sort_values(by=['Score'])
@@ -13,8 +13,8 @@ mast = pd.read_csv('word_scores.csv')
 #round all scores values down to just 1 decimal place and rounds down like 4.99 would be rounded down to 4.9
 #note that this is not ordered
 # mast['Score'] = mast['Score'].apply(lambda x: math.floor(x * 10) / 10)
-# mast.to_csv('word_scores_round.csv')
-# work_val = pd.read_csv('word_scores_round.csv')
+# mast_round = pd.read_csv('word_scores_round_ordered.csv')
+work_val = pd.read_csv('word_scores_round_ordered.csv')
 
 class Node:
     def __init__(self, t, is_leaf=True):
@@ -104,6 +104,21 @@ def flatten_list(lst):
     else:
         return lst
 
+def top_10(lst):
+    print ('top 10')
+    last_ten = lst[-10:]
+    return last_ten
+
+
+def bottom_10(lst):
+    print ('bottom 10')
+    bottom_10 = lst[:10]
+    return bottom_10
+
+def random_10(lst):
+    print ('random 10')
+
+
 word_number_org()
 
 # Create a new tree
@@ -113,6 +128,8 @@ for i in range(10, 50):
     j = i/10
     tree.insert(j, con_val[j])
 
-
+print (tree.search(4.2))
+print(top_10(flatten_list(tree.search(4.2))))
+# print(bottom_10(tree.search(4.2)))
 # print ("\n")
 # print ("\n")
