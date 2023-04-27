@@ -148,18 +148,17 @@ for i in range(10, 51):
     j = i/10
     tree.insert(j, con_val[j])
 
+# In main, use this function to search for word in the tree
 search_word("bastille")
 
+#Values are from the user. Current one is default
+k = 4.7
+#For main, use everything inside the print statement for the main, if you want a list of words associated with the score
+#Words with scores closest to the k value (ascending order), making it the least confident for that bucket (4.7)
+print(bottom_10(flatten_list(tree.search(k))))
+#10 words with scores fartest from the k value (ascending order), making it the most confident for that bucket (4.7)
+print(top_10(flatten_list(tree.search(k))))
+#Random words with scores in that bucket (4.7) (no specific order), generates a list of 10
+print(random_10(flatten_list(tree.search(k))))
 
-
-
-# search_word(tree, word_search)
-
-# for i in range(10, 51):
-#     k = i/10
-#     print (k, end=":\n")
-#     print(bottom_10(flatten_list(tree.search(k))))
-#     print(top_10(flatten_list(tree.search(k))))
-#     print(random_10(flatten_list(tree.search(k))))
-#     print ("\n")
 
