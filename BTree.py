@@ -1,14 +1,14 @@
-# import preProccess as pre
 import pandas as pd
 import math
 from itertools import chain
+import random
 
 #main master sheet
-# mast = pd.read_csv('word_scores.csv')
+mast = pd.read_csv('word_scores.csv')
 
 # #sort all score values from lowest to highest
-# mast = mast.sort_values(by=['Score'])
-# mast.to_csv('word_scores_ordered.csv')
+mast = mast.sort_values(by=['Score'])
+mast.to_csv('word_scores_ordered.csv')
 
 #round all scores values down to just 1 decimal place and rounds down like 4.99 would be rounded down to 4.9
 #note that this is not ordered
@@ -105,31 +105,37 @@ def flatten_list(lst):
         return lst
 
 def top_10(lst):
-    print ('top 10')
+    print ("Top 10:", end ="\n")
     last_ten = lst[-10:]
     return last_ten
 
-
 def bottom_10(lst):
-    print ('bottom 10')
+    print ("Bottom 10:", end="\n")
     bottom_10 = lst[:10]
     return bottom_10
 
 def random_10(lst):
-    print ('random 10')
+    print ("Random 10:", end="\n")
+    random_10 = random.sample(lst, 10)
+    return random_10
+    
 
 
 word_number_org()
 
 # Create a new tree
-tree = BTree(3)
+# Must set tree to degree 21 to work properly
+tree = BTree(21)
 
-for i in range(10, 50):
+for i in range(10, 51):
     j = i/10
     tree.insert(j, con_val[j])
 
-print (tree.search(4.2))
-print(top_10(flatten_list(tree.search(4.2))))
-# print(bottom_10(tree.search(4.2)))
-# print ("\n")
-# print ("\n")
+for i in range(10, 51):
+    k = i/10
+    print (k, end=":\n")
+    print(bottom_10(flatten_list(tree.search(k))))
+    print(top_10(flatten_list(tree.search(k))))
+    print(random_10(flatten_list(tree.search(k))))
+    print ("\n")
+
