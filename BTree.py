@@ -4,17 +4,19 @@ from itertools import chain
 import random
 
 #main master sheet
-mast = pd.read_csv('word_scores.csv')
+# mast = pd.read_csv('FinalDictionary.csv')
+# mast['Score'] = mast['Score'].apply(lambda x: math.floor(x * 10) / 10)
+# mast.to_csv('FinalDic_Round.csv')
 
 # #sort all score values from lowest to highest
-mast = mast.sort_values(by=['Score'])
-mast.to_csv('word_scores_ordered.csv')
+# mast = mast.sort_values(by=['Score'])
+# mast.to_csv('FinalDic_Ordered.csv')
 
-#round all scores values down to just 1 decimal place and rounds down like 4.99 would be rounded down to 4.9
-#note that this is not ordered
+# #round all scores values down to just 1 decimal place and rounds down like 4.99 would be rounded down to 4.9
+# #note that this is not ordered
 # mast['Score'] = mast['Score'].apply(lambda x: math.floor(x * 10) / 10)
-# mast_round = pd.read_csv('word_scores_round_ordered.csv')
-work_val = pd.read_csv('word_scores_round_ordered.csv')
+# mast.to_csv('FinalDic_Round_Ordered.csv')
+work_val = pd.read_csv('FinalDic_Round_Ordered.csv')
 
 class Node:
     def __init__(self, t, is_leaf=True):
