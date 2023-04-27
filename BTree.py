@@ -3,7 +3,7 @@ import math
 from itertools import chain
 import random
 
-#Everything up until work_val is to organize the dataset to make it easier for the tree
+#Everything up until work_val is to organize the dataset to make it easier to insert to the tree
 # main master sheet
 # mast = pd.read_csv('FinalDictionary.csv')
 # mast['Score'] = mast['Score'].apply(lambda x: math.floor(x * 10) / 10)
