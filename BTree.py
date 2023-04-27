@@ -3,7 +3,7 @@ import math
 from itertools import chain
 import random
 
-#main master sheet
+# main master sheet
 # mast = pd.read_csv('FinalDictionary.csv')
 # mast['Score'] = mast['Score'].apply(lambda x: math.floor(x * 10) / 10)
 # mast.to_csv('FinalDic_Round.csv')
@@ -18,6 +18,7 @@ import random
 # mast.to_csv('FinalDic_Round_Ordered.csv')
 
 work_val = pd.read_csv('FinalDic_Round_Ordered.csv')
+
 
 class Node:
     def __init__(self, t, is_leaf=True):
@@ -60,6 +61,7 @@ class Node:
             new_child.children = child.children[mid+1:]
             child.children = child.children[:mid+1]
 
+
 class BTree:
     def __init__(self, t):
         self.root = Node(t, is_leaf=True)
@@ -94,6 +96,7 @@ class BTree:
             self._insert_non_full(node.children[i], key, words)
 
 #A dictionary to hold the list of words that is associated with the key (confidence value)
+
 con_val = {}
 
 #Function push all values from the data set into a dictionary to later be inserted into the tree
@@ -105,6 +108,7 @@ def word_number_org():
             con_val[score] = []
         con_val[score].append(word)
 
+
 #Some nodes have a list inside a list, this is to help rememdy this and make it just a normal list
 #Makes it easier to sort and traverse the tree
 def flatten_list(lst):
@@ -113,23 +117,24 @@ def flatten_list(lst):
     else:
         return lst
 
+
 #Function to return the top 10 words of the score of a node (Like the top 10 most confident words with a score of 4.7)
 def top_10(lst):
-    print ("Top 10:", end ="\n")
     last_ten = lst[-10:]
     return last_ten
 
+
 #Function to return the bottom 10 words of the score of a node (Like the top 10 most unconfident words with a score of 4.7)
 def bottom_10(lst):
-    print ("Bottom 10:", end="\n")
     bottom_10 = lst[:10]
     return bottom_10
 
+
 #Function to return the random 10 words of the score of a node (Like the 10 random words with a score of 4.7)
 def random_10(lst):
-    print ("Random 10:", end="\n")
     random_10 = random.sample(lst, 10)
     return random_10
+
 
 #Searches through each node of the tree and checks the list of words of each node
 def search_word(word_search):
@@ -140,11 +145,9 @@ def search_word(word_search):
         if (not found):
             for word in list:
                 if word == word_search:
-                    print ('"' + word + '"', "found with a confidence score of:", j)
                     found = True
-                    return 
+                    return
         if (j == 5.0):
-            print ("Word not found in tree")
             return
 
 #Function to get all data ready to be inserted into the tree
@@ -162,14 +165,12 @@ for i in range(10, 51):
 # In main, use this function to search for word in the tree
 search_word("bastille")
 
-#Values are from the user. Current one is default
+# Values are from the user. Current one is default
 k = 4.7
-#For main, use everything inside the print statement for the main, if you want a list of words associated with the score
-#Words with scores closest to the k value (ascending order), making it the least confident for that bucket (4.7)
+# For main, use everything inside the print statement for the main, if you want a list of words associated with the score
+# Words with scores closest to the k value (ascending order), making it the least confident for that bucket (4.7)
 print(bottom_10(flatten_list(tree.search(k))))
-#10 words with scores fartest from the k value (ascending order), making it the most confident for that bucket (4.7)
+# 10 words with scores fartest from the k value (ascending order), making it the most confident for that bucket (4.7)
 print(top_10(flatten_list(tree.search(k))))
-#Random words with scores in that bucket (4.7) (no specific order), generates a list of 10
+# Random words with scores in that bucket (4.7) (no specific order), generates a list of 10
 print(random_10(flatten_list(tree.search(k))))
-
-
