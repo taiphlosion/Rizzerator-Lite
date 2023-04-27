@@ -3,6 +3,7 @@ import math
 from itertools import chain
 import random
 
+#Everything up until work_val is to organize the dataset to make it easier for the tree
 # main master sheet
 # mast = pd.read_csv('FinalDictionary.csv')
 # mast['Score'] = mast['Score'].apply(lambda x: math.floor(x * 10) / 10)
@@ -17,6 +18,7 @@ import random
 # mast['Score'] = mast['Score'].apply(lambda x: math.floor(x * 10) / 10)
 # mast.to_csv('FinalDic_Round_Ordered.csv')
 
+#Finalized and ordered dataset
 work_val = pd.read_csv('FinalDic_Round_Ordered.csv')
 
 
@@ -41,6 +43,7 @@ class Node:
             return self.children[i].search(key)
 
     #Detects if node is full and then split accordingly if it passes limit size
+    #also makes sure that its list and keys are transferred over appropriately
     def split_child(self, i, child):
         new_child = Node(self.t, is_leaf=child.is_leaf)
         mid = self.t - 1
@@ -63,13 +66,17 @@ class Node:
 
 
 class BTree:
+    #Tree object, with t being the degree of the tree
     def __init__(self, t):
         self.root = Node(t, is_leaf=True)
         self.t = t
 
+    #Takes the key(confidence value) and returns node if it has that value, if not return None
     def search(self, key):
         return self.root.search(key)
 
+    #Inserts node into the tree, and if full, split into child nodes and makes new root
+    #Uses the other insert function to traverse tree to find right place to insert tree
     def insert(self, key, words):
         if len(self.root.keys) == 2*self.t - 1:
             new_root = Node(self.t, is_leaf=False)
@@ -78,13 +85,17 @@ class BTree:
             self.root = new_root
         self._insert_non_full(self.root, key, words)
 
+    #Recursively traverses tree to find right location to insert into the new tree.
     def _insert_non_full(self, node, key, words):
         i = len(node.keys) - 1
+        #Inserts if node is a leaf, meaning it's in the right place
         if node.is_leaf:
             while i >= 0 and key < node.keys[i]:
                 i -= 1
             node.keys.insert(i+1, key)
             node.words.insert(i+1, words)
+        #If its an internal node, find the appropriate child node to continue the recursive insert process
+        #Also checks if child node is full and splits accordingly
         else:
             while i >= 0 and key < node.keys[i]:
                 i -= 1
@@ -109,8 +120,8 @@ def word_number_org():
         con_val[score].append(word)
 
 
-#Some nodes have a list inside a list, this is to help rememdy this and make it just a normal list
-#Makes it easier to sort and traverse the tree
+#Some nodes have a list inside a list, this is to help remedy this and make it just a normal list
+#Makes it possible to sort and traverse the tree
 def flatten_list(lst):
     if isinstance(lst, list) and any(isinstance(elem, list) for elem in lst):
         return list(chain.from_iterable(lst))
@@ -136,7 +147,7 @@ def random_10(lst):
     return random_10
 
 
-#Searches through each node of the tree and checks the list of words of each node
+#Searches through each node of the tree and checks the list of words of each node, using function of the tree
 def search_word(word_search):
     found = False
     for i in range(10, 51):
