@@ -38,13 +38,13 @@ The one wrinkle left out is that we had a limited number of times that we could 
 
 Think of an airplane; if one of its engines goes out, the thing needs to keep flying. The backup engine, then, was a k-nearest neighbors type algorithm to find the neighbors of a word in our dictionary. I won't go too much into detail on this part of the algorithm because it wasn't one of our best ideas yet (we improved upon it later in the Jupyter file). However, here's a general outline of how it works:
     1. Download the pretrained GloVe model trained on a Twitter dataset
-        1a. This model was chosen because it was believed it would have somewhat emotionally colored speech. It had the drawback of slang words and many misspelled words.
+        1a. This model was chosen because it was believed it would have somewhat emotionally colored speech. It had the drawback of slang words and many                misspelled words.
     2. Take a word from our dictionary which already had a score (aka the OG word)
     3. Find the OG words k-nearest neighbors (first level neighbors)
     4. For each of the first level neighbors, find its k-nearest neighbors (second level neighbors)
     5. Use the scored second level neighbors, take their average, and use it to approximate a score for their respective first  level neighbor
     6. For each unknown second level neighbor, find their k-nearest neighbors (third level neighbors) and try to do the same thing as above
-    7. By this point, if we can't figure out the score for a word, don't go any deeper, but use the score of the first level or second level neighbor to assign a score to the unknown third level neighbor
+    7. By this point, if we can't figure out the score for a word, don't go any deeper, but use the score of the first level or second level neighbor to            assign a score to the unknown third level neighbor
 
 Again, not the most accurate, but it definitely finds a lot of new words every iteration. However, as I said above, it wasn't really used as I terminated the algorithm when we got close to our API limit in favor of the next approach.
 
