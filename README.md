@@ -22,7 +22,7 @@ Doesn't this not capture the full range of ways that a word can be used? Yes, so
 
 In all honesty, we weren't too concerned about the confidence scores being perfectly accurate this time around. We just wanted to get a general idea of how to solve the problem so that we could improve upon it. For the purpose of this project, which was more about creating data structures to represent our dictionary, I wanted an algorithm that cared more about getting new words into our dictionary than getting their score correct. Of course, I wanted the score to make sense in most cases, but exceptions were expected and not too frustrating.
 
-## Ranking By Using Synonyms
+## Similarity: Ranking By Using Synonyms
 By this point, after ranking our sentence words in the process outlined above, we had built a dictionary of 2,617 words. Not bad, but we need 100,000. 
 
 The next idea was pretty straightforward: synonyms are likely to have a reasonably similar confidence score. Now, we recognize that there is color in words. If "amazing" is the word we have extracted from our dictionary, and we pull its synonyms, we may get words like "tremendous", "great", and "impressive." These words, while similar, have different associations and are likely to be used in slightly different contexts. So how do we find color between synonyms? We look to the definition of the synonym. If the definition of the synonym has a greater confidence score than the original word (I'll call it the OG word from now on) from our dictionary, then we estimated that the synonym was likely a bit more confident than the OG word. 
