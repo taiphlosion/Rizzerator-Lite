@@ -1,5 +1,5 @@
 # **Rizzerator-Lite**
-A demo version of a machine learning algorithm that sends requests to a dictionary API to give confidence rating of words.
+A demo version of a machine learning algorithm that sends requests to a dictionary API to give confidence rating of words, then uses a word's k-nearest neighbors to assign confidence rating to new words.
 
 
 # **wordRank.ipynb**
